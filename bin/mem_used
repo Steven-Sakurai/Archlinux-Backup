@@ -1,0 +1,2 @@
+#!/usr/bin/bash
+vmstat -s -S Mb|sed -n '2p'

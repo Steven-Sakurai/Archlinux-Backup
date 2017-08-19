@@ -1,0 +1,43 @@
+%!TEX TS-program = xelatex  
+%!TEX encoding = UTF-8 Unicode
+\documentclass[a4paper, 12pt]{article}
+\usepackage{indentfirst}
+\usepackage{float}
+\usepackage{ctex}
+
+\title{测试ctexart Documentclass}
+\author{Steven}
+\date{\today}
+\begin{document}
+\maketitle
+这是一个测试\LaTeX 的文件.\par
+
+在不同的信号频率下，调整其振幅使$u_{total}$维持在$1.0000V$左右，用万用表测量$u_R$并记录。数据见Table 2.
+\begin{table}[H]
+\centering
+\begin{tabular}{|c|c|c|c|c|c|c|c|}
+\hline
+$f/kHz$ & $1.741$ & $1.848$ & $1.955$ & $2.017$ & $2.078$ & $2.113$ & $2.148$ \\
+\hline
+$u_R/V$ & $0.1347$ & $0.1745$ & $0.2398$ & $0.2998$ & $0.3881$ & $0.4587$ & $0.5477$\\
+\hline
+\hline
+$f/kHz$ & $2.169$ & $2.190$ & $2.205$ & $2.221$ & $2.235$ & $2.249$ & $2.262$ \\
+\hline
+$u_R/V$ & $0.6087$ & $0.6714$ & $0.7125$ & $0.7478$ & $0.7675$ & $0.7738$ & $0.7669$\\
+\hline
+\hline
+$f/kHz$ & $2.276$ & $2.293$ & $2.309$ & $2.332$ & $2.354$ & $2.395$ & $2.434$ \\
+\hline
+$u_R/V$ & $0.7470$ & $0.7098$ & $0.6675$ & $0.6034$ & $0.5446$ & $0.4522$ & $0.3850$\\
+\hline
+\hline
+$f/kHz$ & $2.510$ & $2.587$ & $2.745$ & $2.905$ &  & &  \\
+\hline
+$u_R/V$ & $0.2955$ & $0.2384$ & $0.1712$ & $0.1341$ & & &\\
+\hline
+\end{tabular}
+\caption{$RLC$串联电路的幅频特性}
+\end{table}
+
+\end{document}

@@ -1,0 +1,35 @@
+#!/usr/bin/bash
+
+# select wifi
+nmtui
+
+setxkbmap -option "ctrl:nocaps"
+sudo -i 
+echo 3 > /sys/class/backlight/acpi_video0/brightness
+
+
+# aur
+sudo echo "[archlinuxfr]
+SigLevel = Optional TrustAll
+Server = http://repo.archlinux.fr/$arch
+
+[archlinuxcn]
+SigLevel = Optional TrustAll
+Server = https://mirrors.ustc.edu.cn/archlinuxcn/$arch" >> /etc/pacman.conf
+
+
+sudo pacman -Syyu yaourt curl wget git vim zsh
+# oh-my-zsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
+yaourt ttf-google
+yaourt wqy
+sudo pacman -S fcitx-im
+sudo pacman -S fcitx-configtool
+touch ~/.xprofile && echo 'export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export XMODIFIERS="@im=fcitx"' >> ~/.xprofile
+yaourt sogou
+
+yaourt macfan
+

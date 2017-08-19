@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=3.3
+Name=XX-Net
+Exec=fakeroot /home/steven/XX-Net/start
+Icon=utilities-terminal
+Terminal=false
+Type=Application
+Categories=Internet
+StartupNotify=true
