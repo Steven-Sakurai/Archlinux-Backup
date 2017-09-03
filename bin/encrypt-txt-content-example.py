@@ -5,7 +5,7 @@
 import sys
 import getpass
 
-validPassword = 'Steven0410Lyra'
+validPassword = 'password'
 
 inputPassword = getpass.getpass(prompt="Key: ")
 
