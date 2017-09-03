@@ -1,6 +1,6 @@
 cmake is designed to be "Write once, Run everywhere" 
 
-## USEAGE
+## USAGE
 For small projects,  
 
 ```bash
