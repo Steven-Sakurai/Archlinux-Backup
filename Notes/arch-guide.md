@@ -64,6 +64,7 @@ pacman -S grub-bios efibootmgr
 grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=arch_grub --recheck --debug
 grub-mkconfig -o /boot/grub/grub.cfg
 
+pacman -Syu dialog wpa_supplicant
 exit
 umount -R /mnt
 reboot
@@ -72,6 +73,7 @@ reboot
 图形界面
 
 ```
+lspci | grep -e VGA
 xorg-server xorg-xrdb dbus xf86-video-vesa virtualbox-guest-utils
 
 ```
