@@ -11,11 +11,11 @@ Plugin 'Shougo/vimshell.vim'
 Plugin 'Raimondi/delimitMate'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+Plugin 'Valloric/YouCompleteMe'
 
 call vundle#end()            
 filetype plugin indent on    
 
-set bg=light
 set backspace=2
 set number
 set autoread
@@ -32,11 +32,26 @@ set smarttab
 set shiftwidth=4
 set tabstop=4
 set mouse=a
-set clipboard=unnamed
+set t_Co=256
+set clipboard+=unnamed
 set whichwrap+=<,>,h,l,[,]
+set t_te=
+set showmode
+set cursorline
 syntax enable
-colo molokai 
+set bg=dark
+if !has("gui_running")
+    let g:solarized_termtrans=1
+    let g:solarized_termcolors=256
+endif
+colo solarized
+highlight Comment ctermfg=white
 
+:" Map Ctrl-A -> Start of line, Ctrl-E -> End of line
+:map <C-a> <Home>
+:map <C-e> <End>
+inoremap <C-e> <Esc>A
+inoremap <C-a> <Esc>I
 
 "Manage nerdtree
 "show nerdtree with C-n
