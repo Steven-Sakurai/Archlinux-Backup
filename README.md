@@ -13,5 +13,8 @@
 
 5. My arch installation record and useful scripts(ex. on startup).  
 
+## Screenshot
+Currently running i3 because xfce window sometimes crashes without a reason and xfce isn't actively maintained anymore...
+![i3-desktop](i3-screenshot.png)
   
 
