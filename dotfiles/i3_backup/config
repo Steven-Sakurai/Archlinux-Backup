@@ -40,12 +40,28 @@ bindsym $mod+q kill
 
 # start dmenu (a program launcher)
 bindsym $mod+d exec dmenu_run
+# There also is the (new) i3-dmenu-desktop which only displays applications
+# shipping a .desktop file. It is a wrapper around dmenu, so you need that
+# installed.
+# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+
+# change focus
+#bindsym $mod+j focus left
+#bindsym $mod+k focus down
+#bindsym $mod+l focus up
+#bindsym $mod+semicolon focus right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
+
+# move focused window
+#bindsym $mod+Shift+j move left
+#bindsym $mod+Shift+k move down
+#bindsym $mod+Shift+l move up
+#bindsym $mod+Shift+semicolon move right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
@@ -65,7 +81,7 @@ bindsym $mod+f fullscreen toggle
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
-bindsym $mod+p layout toggle split
+# bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
@@ -151,46 +167,42 @@ client.urgent           #990000 #990000 #FFFFFF #990000
 client.placeholder      #000000 #000000 #FFFFFF #000000
 client.background       #FFFFFF
 
-#i3bar
-#bar {
-#    i3bar_command i3bar -t
-#    height 20
-#    tray_output none
-#    status_command ~/.config/i3/jconky
-#    position top 
-#    #mode hide
-#   strip_workspace_numbers yes
-#    separator_symbol "    "
+#i3bar设置
+bar {
+    i3bar_command i3bar 
+    height 28
+    #禁止systemtray
+    tray_output none
+    # i3bar调用
+    status_command ~/.config/i3/jconky
+    # 显示位置top/bottom
+    position top 
+    # 是否隐藏
+    #mode hide
+    # 拆解工作区名（隐藏前面的1:2:3:……）
+    strip_workspace_numbers yes
+    # 定义分隔符∥
+    separator_symbol "    "
 
-#    colors {
-#        background #10101030
-#        statusline #FFFFFF99
-#        separator  #3399FF99
-#        #                  border     bg         font 
-#        focused_workspace  #3297FD60  #11111160  #FFFFFF
-#        active_workspace   #FFFFFF60  #FFFFFF60  #FFFFFF
-#        inactive_workspace #11111160  #11111160 #FFFFFF
-#        urgent_workspace   #99000060  #11111160 #FFFFFF
-#        binding_mode       #99000060  #99000060 #FFFFFF
-#    }
-#}
+    colors {
+        #background #10101000
+        statusline #FFFFFF
+        separator  #3399FF
+        # 工作区颜色         边框    背景    文字
+        focused_workspace  #3297FD #11111100 #FFFFFF
+        active_workspace   #FFFFFF #FFFFFF00 #FFFFFF
+        inactive_workspace #111111 #11111100 #FFFFFF
+        urgent_workspace   #990000 #11111100 #FFFFFF
+        binding_mode       #990000 #99000000 #FFFFFF
+    }
+}
 
 gaps inner 5
 gaps outer 5
 
-#new_window pixel 2
-hide_edge_borders smart
-
-set $unfocused_border #1D1F21
-set $focused_border #CC6666
-
 # STARTUP
 exec ~/.fehbg &
-#exec --no-startup-id nitrogen --restore
 exec --no-startup-id compton -b & 
-exec_always --no-startup-id xrdb ~/.Xresources
-exec_always --no-startup-id ~/.config/polybar/launch.sh 
-exec_always --no-startup-id wal -R -n -t
 
 # CUSTOM BINDING
 bindsym $mod+Shift+s exec xfce4-screenshooter
@@ -199,7 +211,7 @@ bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #i
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
 # Screen brightness controls
-#bindsym XF86MonBrightnessUp exec ~/bin/brightness.sh +10 # increase screen brightness
-#bindsym XF86MonBrightnessDown exec ~/bin/brightness.sh -10 # decrease screen brightness
+bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
+bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
 
 execalways xfce-power-manager
