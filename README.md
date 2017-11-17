@@ -14,8 +14,8 @@
 
 ## Screenshot  
 
-Currently running i3 with polybar, pywal ...
-![i3-desktop](i3-1.png)
-![i3-desktop](i3-2.png)
+Currently running i3 with polybar, pywal ...  
+![i3-desktop](i3-1.png)  
+![i3-desktop](i3-2.png)  
   
 
