@@ -26,9 +26,13 @@ export SSH_KEY_PATH="~/.ssh/rsa_id"
 alias c='clear'
 alias d='cd ~/Desktop'
 alias pacman='sudo pacman'
-alias bright-adjust='echo 5 | sudo tee /sys/class/backlight/acpi_video0/brightness'
+#alias bright-adjust='echo 5 | sudo tee /sys/class/backlight/acpi_video0/brightness'
 alias solarized-dark='cp ~/solarized-master/xfce4-terminal/dark/terminalrc ~/.config/xfce4/terminal/terminalrc' 
 alias killsogou='killall fcitx && killall sogou-qimpanel && killall sogou-qimpanel-watchdog'
 alias start-sogou='fcitx && sogou-qimpanel'
-alias Git='git add -A && git commit -m "From Home, Arch" && git push orgin master'
+alias Git='git add -A && git commit -am "From Home, Arch" && git push origin master'
+alias brighter='sudo ~/bin/brightness.sh +10'
+alias brighter-less='sudo ~/bin/brightness.sh -10'
+alias ip-address='curl icanhazip.com'
 
+(wal -t -r &)
