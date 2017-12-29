@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../include/MathFun.h
+
+/Users/steven/Desktop/cppCode/test-cmake/main.cc
+stdio.h
+-
+stdlib.h
+-
+MathFun.h
+-
+
+/Users/steven/Desktop/cppCode/test-cmake/src/MathFun.cc
+

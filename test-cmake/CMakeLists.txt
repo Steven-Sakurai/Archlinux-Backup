@@ -1,0 +1,12 @@
+project(TestCmake)
+set(CMAKE_CXX_STANDARD 11)
+aux_source_directory(./src DIR_SRC)
+find_package(Armadillo REQUIRED)
+include_directories(${ARMADILLO_INCLUDE_DIRS})
+find_package(Boost COMPONENTS system filesystem REQUIRED)
+include_directories(${Boost_INCLUDE_DIR})
+include_directories(include)
+add_executable(output ${DIR_SRC} main.cc)
+target_link_libraries(output ${ARMADILLO_LIBRARIES})
+target_link_libraries(output ${Boost_LIBRARIES})
+
