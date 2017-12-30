@@ -1,3 +1,9 @@
+/*
+ * On OS X, 'g++ -Wall heston.cc -lgsl'
+ * On arch linux, 'g++  -Wall heston.cc -lgsl -lgslcblas'
+ * */
+
+
 #include <iostream>
 #include <cmath>
 #include <complex>
