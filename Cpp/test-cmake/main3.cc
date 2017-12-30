@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <MathFun.h>
+#include <MathFun.hh>
 
 int main(int argc, char *argv[])
 {

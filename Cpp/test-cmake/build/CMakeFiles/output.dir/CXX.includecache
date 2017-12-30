@@ -6,15 +6,13 @@
 
 #IncludeRegexTransform: 
 
-../include/MathFun.h
+../include/MathFun.hh
 
 /Users/steven/Desktop/cppCode/test-cmake/main.cc
 stdio.h
 -
 stdlib.h
 -
-MathFun.h
+MathFun.hh
 -
-
-/Users/steven/Desktop/cppCode/test-cmake/src/MathFun.cc
 
