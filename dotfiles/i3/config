@@ -33,7 +33,7 @@ floating_modifier $mod
 bindsym $mod+Return exec xfce4-terminal --hide-menubar
 
 # start file manager
-bindsym $mod+e exec pcmanfm
+bindsym $mod+e exec thunar
 
 # kill focused window
 bindsym $mod+q kill
@@ -178,8 +178,10 @@ client.background       #FFFFFF
 gaps inner 5
 gaps outer 5
 
+for_window [class="^.*"] border pixel 5
+
 #new_window pixel 2
-hide_edge_borders smart
+hide_edge_borders both
 
 set $unfocused_border #1D1F21
 set $focused_border #CC6666
@@ -187,7 +189,9 @@ set $focused_border #CC6666
 # STARTUP
 exec ~/.fehbg &
 #exec --no-startup-id nitrogen --restore
-exec --no-startup-id compton -b & 
+exec --no-startup-id compton -b &
+exec --no-startup-id fcitx &
+exec --no-startup-id sogou-qimpanel
 exec_always --no-startup-id xrdb ~/.Xresources
 exec_always --no-startup-id ~/.config/polybar/launch.sh 
 exec_always --no-startup-id wal -R -n -t
