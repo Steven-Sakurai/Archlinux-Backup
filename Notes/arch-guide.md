@@ -71,6 +71,38 @@ reboot
 ```
 lspci | grep -e VGA
 xorg-server xorg-xrdb dbus xf86-video-vesa virtualbox-guest-utils
+sudo vim /etc/pacman.conf
+```
 
 ```
+archlinuxfr]
+SigLevel = Optional TrustAll
+Server = http://repo.archlinux.fr/$arch
+
+[archlinuxcn]
+SigLevel = Optional TrustAll
+Server = https://mirrors.ustc.edu.cn/archlinuxcn/$arch
+```
+
+```
+pacman -Syu yaourt curl wget git vim zsh
+yaourt i3
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+yaourt ttf-google
+yaourt wqy
+yaourt sogou
+yaourt macfan
+sudo pacman -S fcitx-im
+sudo pacman -S fcitx-configtool
+touch ~/.xprofile
+```
+
+`~/.profile`
+
+```
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export XMODIFIERS="@im=fcitx"
+```
+
 
