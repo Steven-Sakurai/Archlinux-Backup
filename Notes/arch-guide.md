@@ -1,18 +1,3 @@
-# 极简主义
-In virtualbox, first enable efi mode...    
-use BIOS in vbox:   
-
-```
-parted /dev/sda
-    mklabel msdos
-    mkpart primary ext4 1M 100M
-    set 1 boot on
-    mkpart primary ext4 100M -1
-    p
-    q
-```
-
-
 ```
 ping -c 3 github.com
 timedatectl set-ntp true
@@ -29,25 +14,33 @@ enter parted:
     p 
     q
 leave parted.
+
 mkfs.ext4 /dev/sda2
 mkfs.vfat /dev/sda1
 
+# load root partition
 mount /dev/sda2 /mnt
+# create bootloader
 mkdir -p /mnt/boot/efi
 mount /dev/sda1 /mnt/boot/efi
 
+# update mirrorlist
 nano /etc/pacman.d/mirrorlist
 pacman -Syy
 
+# installation
 pacstrap -i /mnt base base-devel
 genfstab -U -L /mnt >> /mnt/etc/fstab
 
+# enter the root partition
 arch-chroot /mnt /bin/bash
-pacman -Syu zsh vim
+# install the basics stuff
+pacman -Syu zsh vim dialog wpa_supplicant
 zsh
+
+# set locale and time
 ln -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 hwclock --systohc --utc
-alias ls='ls --color'
 nano /etc/locale.gen
 locale-gen
 echo "LANG=en_US.UTF-8" > /etc/locale.conf
@@ -55,22 +48,25 @@ echo 'steven-mba' > /etc/hostname
 nano /etc/hosts (replace myhostname)
 
 mkinitcpio -p linux
+
+# set password and accounts
 passwd
 useradd -m -g users -G wheel -s /bin/bash steven 
 passwd steven
 visudo
 
+# grub2
 pacman -S grub-bios efibootmgr
 grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=arch_grub --recheck --debug
 grub-mkconfig -o /boot/grub/grub.cfg
 
-pacman -Syu dialog wpa_supplicant
+# finished leave the partition
 exit
 umount -R /mnt
 reboot
 ```
 
-图形界面
+# graphics
 
 ```
 lspci | grep -e VGA
