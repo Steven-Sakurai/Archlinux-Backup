@@ -1,0 +1,81 @@
+set nocompatible              
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+"Let Vundle manage itself
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'ervandew/supertab'
+Plugin 'easymotion/vim-easymotion'
+Plugin 'Shougo/vimshell.vim'
+Plugin 'Raimondi/delimitMate'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'majutsushi/tagbar'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'Valloric/YouCompleteMe'
+
+call vundle#end()            
+filetype plugin indent on    
+
+set backspace=2
+set number
+set autoread
+set wildmenu
+set ruler
+set smartcase
+set hlsearch
+set magic
+set incsearch
+set lazyredraw
+set encoding=utf8
+set expandtab
+set smarttab
+set shiftwidth=4
+set tabstop=4
+set mouse=a
+set clipboard=unnamedplus,unnamed,autoselect
+set whichwrap+=<,>,h,l,[,]
+syntax enable
+
+set background=dark
+if !has("gui_running")
+    let g:solarized_termtrans=1
+    let g:solarized_termcolors=256
+endif
+colo solarized
+
+
+:" Map Ctrl-A -> Start of line, Ctrl-E -> End of line
+:map <C-a> <Home>
+:map <C-e> <End>
+inoremap <C-e> <Esc>A
+inoremap <C-a> <Esc>I
+
+"nerdtree
+"show nerdtree with C-n
+map <C-n> :NERDTreeToggle<CR>
+"quit nerdtree automatically
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+"show hidden files
+let NERDTreeShowHidden=1
+"fi
+
+
+"Ctrlp
+nnoremap <leader>. :CtrlPTag<cr>
+
+
+"tagbar
+nnoremap <silent> <Leader>b :TagbarToggle<CR>
+
+
+" ycm
+let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/.ycm_extra_conf.py'
+set completeopt=longest,menu 
+autocmd InsertLeave * if pumvisible() == 0|pclose|endif 
+inoremap <expr> <CR>       pumvisible() ? "\<C-y>" : "\<CR>"
+inoremap <expr> <Down>     pumvisible() ? "\<C-n>" : "\<Down>"
+inoremap <expr> <Up>       pumvisible() ? "\<C-p>" : "\<Up>"
+let g:ycm_min_num_of_chars_for_completion=3
+let g:ycm_seed_identifiers_with_syntax=1
+"end
